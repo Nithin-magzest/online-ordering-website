@@ -1,0 +1,140 @@
+/* NAVBAR */
+nav {
+  background: #111;
+  padding: 10px 20px;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: orange;
+}
+
+/* NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex; /* IMPORTANT */
+  gap: 25px; /* space between buttons */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAV BUTTONS */
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
+.nav-links li a:hover {
+  color: orange;
+}
+
+/* RIGHT SIDE ICON */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-btn {
+  cursor: pointer;
+  font-size: 18px;
+}
+.icon-btn:hover {
+  color: orange;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Nunito", sans-serif;
+}
+:root {
+  --bg: #0f3d3e; /* bluish green background */
+  --surface: #134e4a;
+  --card: #0f766e;
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f2f2f2;
+  --muted: rgba(255, 255, 255, 0.6);
+  --hint: rgba(255, 255, 255, 0.3);
+  --orange: #22c55e; /* changed accent to green */
+  --amber: #10b981;
+  --green: #4ade80;
+  --red: #ef4444;
+}
+.categories-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.categories-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+/* GRID */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* CATEGORY CARD */
+.category-card {
+  background: #0d6e6e;
+  border-radius: 15px;
+  padding: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* ICON */
+.category-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+/* TEXT */
+.category-card p {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* HOVER EFFECT */
+.category-card:hover {
+  background: #12a3a3;
+  transform: scale(1.1);
+}
+
+.category-card:hover .category-icon {
+  filter: brightness(2);
+}

@@ -1,26 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Restaurants() {
+  const [menu, setMenu] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/menu")
+      .then((res) => res.json())
+      .then((data) => setMenu(data));
+  }, []);
+
   return (
     <div className="section">
-      <h2>Featured Restaurants</h2>
+      <h2>Featured Menu</h2>
 
-      <div className="rest-grid">
-        <div className="rest-card">
-          <div className="rest-thumb">🍕</div>
-          <div className="rest-body">
-            <div className="rest-name">Pizzeria Roma</div>
-            <div className="rest-cuisine">Italian · Pizza</div>
+      <div className="menu-grid">
+        {menu.map((item) => (
+          <div className="menu-card" key={item.id}>
+            <h3>{item.name}</h3>
+            <p>₹{item.price}</p>
+            <button>Add to Cart</button>
           </div>
-        </div>
-
-        <div className="rest-card">
-          <div className="rest-thumb">🍔</div>
-          <div className="rest-body">
-            <div className="rest-name">Smash Burger</div>
-            <div className="rest-cuisine">American · Burgers</div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

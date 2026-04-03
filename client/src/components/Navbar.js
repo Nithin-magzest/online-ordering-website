@@ -1,18 +1,15 @@
 import React from "react";
+import "../App.css";
 
 function Navbar() {
   return (
     <nav>
       <div className="nav-inner">
-        <div className="logo">
-          🍽️ Bite<span>Rush</span>
-        </div>
+        <div className="logo">🍔 FoodApp</div>
 
         <ul className="nav-links">
           <li>
-            <a href="#" className="active">
-              Home
-            </a>
+            <a href="#">Home</a>
           </li>
           <li>
             <a href="#">Restaurants</a>
@@ -30,8 +27,6 @@ function Navbar() {
 
         <div className="nav-right">
           <div className="icon-btn">🔍</div>
-          <div className="icon-btn">🛒</div>
-          <button className="btn-login">Sign In</button>
         </div>
       </div>
     </nav>

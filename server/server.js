@@ -1,15 +1,16 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
+const PORT = 5000;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Backend running");
-});
-
+/* ---------- MENU API (React uses this) ---------- */
 app.get("/menu", (req, res) => {
   res.json([
     { id: 1, name: "Chicken Burger", price: 120 },
@@ -18,6 +19,12 @@ app.get("/menu", (req, res) => {
   ]);
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+/* ---------- BASIC TEST ROUTE ---------- */
+app.get("/", (req, res) => {
+  res.send("BiteRush Backend Running 🚀");
+});
+
+/* ---------- START SERVER ---------- */
+app.listen(PORT, () => {
+  console.log(`🍔 BiteRush server running at http://localhost:${PORT}`);
 });
