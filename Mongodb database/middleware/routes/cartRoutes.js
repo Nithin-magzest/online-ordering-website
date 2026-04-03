@@ -1,22 +1,24 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const Cart = require('../models/Cart');
-const auth = require('../middleware/authMiddleware');
+const Cart = require("../models/Cart");
+const cartRoutes = require("./routes/cartRoutes");
+const authMiddleware = require("./authMiddleware");
+const auth = authMiddleware;
 
 // GET cart
-router.get('/', auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   const cart = await Cart.findOne({ userId: req.user.id });
   res.json(cart || { items: [] });
 });
 
 // ADD item
-router.post('/add', auth, async (req, res) => {
+router.post("/add", auth, async (req, res) => {
   const { menuItemId, name, price, quantity, image } = req.body;
   let cart = await Cart.findOne({ userId: req.user.id });
 
   if (!cart) cart = new Cart({ userId: req.user.id, items: [] });
 
-  const existing = cart.items.find(i => i.menuItemId === menuItemId);
+  const existing = cart.items.find((i) => i.menuItemId === menuItemId);
   if (existing) {
     existing.quantity += quantity;
   } else {
@@ -28,11 +30,11 @@ router.post('/add', auth, async (req, res) => {
 });
 
 // REMOVE item
-router.delete('/remove/:menuItemId', auth, async (req, res) => {
+router.delete("/remove/:menuItemId", auth, async (req, res) => {
   const cart = await Cart.findOne({ userId: req.user.id });
-  if (!cart) return res.status(404).json({ message: 'Cart not found' });
+  if (!cart) return res.status(404).json({ message: "Cart not found" });
 
-  cart.items = cart.items.filter(i => i.menuItemId !== req.params.menuItemId);
+  cart.items = cart.items.filter((i) => i.menuItemId !== req.params.menuItemId);
   await cart.save();
   res.json(cart);
 });
