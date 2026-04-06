@@ -1,36 +1,15 @@
 import React from "react";
-import "../App.css";
+import { Link } from "react-router-dom";
+import "./Navbar.css"; // create this file
 
-function Navbar() {
+const Navbar = () => {
   return (
-    <nav>
-      <div className="nav-inner">
-        <div className="logo">🍔 FoodApp</div>
-
-        <ul className="nav-links">
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">Restaurants</a>
-          </li>
-          <li>
-            <a href="#">Offers</a>
-          </li>
-          <li>
-            <a href="#">Track Order</a>
-          </li>
-          <li>
-            <a href="#">Help</a>
-          </li>
-        </ul>
-
-        <div className="nav-right">
-          <div className="icon-btn">🔍</div>
-        </div>
-      </div>
+    <nav className="navbar">
+      <Link to="/">Home</Link>
+      <Link to="/restaurants">Restaurants</Link>
+      <Link to="/cart">Cart</Link>
     </nav>
   );
-}
+};
 
 export default Navbar;
