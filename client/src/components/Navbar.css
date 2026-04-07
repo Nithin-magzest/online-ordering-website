@@ -1,13 +1,221 @@
+/* ── Navbar Base ── */
 .navbar {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 15px;
-  background: #ff4d4d;
-  color: white;
+  padding: 0 2rem;
+  height: 64px;
+  background: #99d280;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
-.navbar a {
-  margin-left: 20px;
-  color: white;
+/* ── Brand ── */
+.navbar-brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #dd195a;
   text-decoration: none;
+  letter-spacing: -0.3px;
+}
+
+.navbar-brand:hover {
+  color: #292fe7;
+}
+
+/* ── Nav Links ── */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* spacing between nav items */
+}
+
+.navbar-links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  padding: 0.4rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #482cff;
+  transition: width 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #4724f9;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+/* ── Right Section ── */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Profile Container ── */
+.nav-profile {
+  position: relative;
+}
+
+/* ── Circular Avatar Button ── */
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* perfect circle */
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #91c28c;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 2px solid #fed7aa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  outline: none;
+  letter-spacing: 0.5px;
+}
+
+.nav-avatar:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+}
+
+.nav-avatar:active {
+  transform: scale(0.97);
+}
+
+/* ── Dropdown ── */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 230px;
+  background: #70b8ff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  z-index: 200;
+  animation: dropFadeIn 0.15s ease;
+}
+
+@keyframes dropFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Dropdown Header ── */
+.nav-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.75rem 1rem;
+}
+
+/* ── Large Avatar inside Dropdown ── */
+.nav-dropdown-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%; /* circle */
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #1c8bec;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #fed7aa;
+}
+
+.nav-dropdown-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.nav-dropdown-email {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+/* ── Divider ── */
+.nav-dropdown-divider {
+  height: 1px;
+  background: #165eee;
+  margin: 0.3rem 0;
+}
+
+/* ── Info Row ── */
+.nav-dropdown-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.83rem;
+  color: #6b7280;
+}
+
+/* ── Logout Button ── */
+.nav-logout-btn {
+  width: 100%;
+  padding: 0.55rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #e55a5a;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nav-logout-btn:hover {
+  background: #55b1ee;
+}
+
+/* ── Login Button ── */
+.nav-login-btn {
+  padding: 0.45rem 1.1rem;
+  background: #f97316;
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-login-btn:hover {
+  background: #12c940;
 }
